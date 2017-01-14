@@ -1,0 +1,11 @@
+/node_modules
+/.env
+npm-debug.log
+
+# Distribution
+/server
+/public
+
+# IDEs / OS
+.DS_Store
+.idea/
