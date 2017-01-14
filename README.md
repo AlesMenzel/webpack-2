@@ -39,6 +39,17 @@ Backend is compiled via Webpack. Support for all common platforms (Windows, Unix
 ## Deploy
 * *TODO: Setup deploy to Heroku*
 
+## Project Strucure
+TODO
+
+## NPM Scripts
+TODO
+
+## Sequelize Migrations
+* Create a new migration: `sequelize migration:create --name migration-name`
+* Run pending migrations: `sequelize db:migrate`
+* Downgrade: `sequelize db:migrate:undo`
+
 ## Issues
 When running `npm run dev` and changing frontend, you are not able to hard reload the page (F5) because server packing webpack ignores client folder (`./src/app`) in order for webpack-dev-middleware load it in memory and serve it via hot reload. Server restart would just discard all in memory changes.
 To hard refresh, either run `npm run build:server:dev` to get the server up to date, or restart the process.

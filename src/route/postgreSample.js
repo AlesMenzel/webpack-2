@@ -2,7 +2,7 @@ import db from '../helper/postgre'
 
 export default (app) => {
 	app.get('/sample/postgre/:userId', (req, res) => {
-		db.user.findAll({
+		db.User.findAll({
 			where: {
 				id: req.params.userId
 			}

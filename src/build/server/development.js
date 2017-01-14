@@ -27,7 +27,8 @@ module.exports = {
 		new webpack.WatchIgnorePlugin([
 			path.resolve(__dirname, '../../app'),
 			path.resolve(__dirname, '../../build'),
-			path.resolve(__dirname, '../../fixtures'),
+			path.resolve(__dirname, '../../migrations'),
+			path.resolve(__dirname, '../../fixtures')
 		]),
 	],
 	externals: [nodeExternals()],

@@ -57,19 +57,20 @@ const application = () => {
 		}
 	});
 
-	// Start the server
-	app.listen(port, () => {
-		debug(`Running environment: ${process.env.NODE_ENV}`);
-		debug(`Listening on port ${port}`);
-	});
-
 	/*
 	 Synchronize postgre database (only creates new tables)
 	 For modifying columns/data use migrations
 
 	 Option for development: You can use { force: true } to drop and sync the whole schema
 	 */
-	db.sequelize.sync({force: process.env.FORCE_DROP});
+	db.sequelize.sync({force: process.env.FORCE_DROP})
+	.then(() => {
+		// Start the server
+		app.listen(port, () => {
+			debug(`Running environment: ${process.env.NODE_ENV}`);
+			debug(`Listening on port ${port}`);
+		});
+	});
 };
 
 export default application;
