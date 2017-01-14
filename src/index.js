@@ -2,11 +2,16 @@ const debug = require('debug')('app:server');
 const express = require('express');
 const compression = require('compression');
 const morgan = require('morgan');
+const fs = require('fs');
+const path = require('path');
+
+import db from './helper/postgre';
 
 const port = process.env.PORT || 3000;
 const morganLog = process.env.NODE_ENV === 'production' ? 'short' : 'dev';
 
 const application = () => {
+	console.log('XY', process.env.DB_POSTGRE);
 	const app = express();
 
 	app.set('x-powered-by', false);
@@ -14,16 +19,24 @@ const application = () => {
 	app.set('views', './src/views');
 
 	// <!-- Webpack Dev/Hot Middleware
-	if (process.env.NODE_ENV !== 'production')
+	if (process.env.NODE_ENV !== 'production') {
 		require('./middleware/hot-reload').default(app);
+	}
 	// -->
 
 	app.use(compression()); // GZip compression
 	app.use(morgan(morganLog)); // Logging
 
+	// Load routes - MUST be before server side render
+	const routes = fs.readdirSync('src/route');
+	for (const route of routes) {
+		require('./route/' + route).default(app);
+	}
+
 	// <!-- Server side rendering
-	if (!process.env.SERVER_SIDE_RENDERING)
+	if (!process.env.SERVER_SIDE_RENDERING) {
 		require('./middleware/server-rendering').default(app);
+	}
 	// -->
 
 	// Serving static content (images, css, files)
@@ -48,7 +61,15 @@ const application = () => {
 	app.listen(port, () => {
 		debug(`Running environment: ${process.env.NODE_ENV}`);
 		debug(`Listening on port ${port}`);
-	})
+	});
+
+	/*
+	 Synchronize postgre database (only creates new tables)
+	 For modifying columns/data use migrations
+
+	 Option for development: You can use { force: true } to drop and sync the whole schema
+	 */
+	db.sequelize.sync({force: process.env.FORCE_DROP});
 };
 
-module.exports = application;
+export default application;

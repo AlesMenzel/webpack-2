@@ -14,6 +14,7 @@ Frontend is compiled via Webpack
 * *TODO: Thunk middleware*
 * *TODO: CSS, POSTCSS, SASS loaders*
 * *TODO: Image/File loaders*
+* *TODO: Add a favicon loader + sample favicon :-)*
 * *TODO: Icons*
 * *TODO: Production ready build config*
 * *TODO: Extract external libraries from bundle and include them from a CDN*
@@ -26,8 +27,10 @@ Backend is compiled via Webpack. Support for all common platforms (Windows, Unix
 * [Webpack Dev](https://github.com/webpack/webpack-dev-middleware)/[Hot Middleware](https://github.com/glenjamin/webpack-hot-middleware)
 * [React Hot Loader](https://github.com/gaearon/react-hot-loader)
 * [Nodemon](https://github.com/remy/nodemon) - automatic restarting
-* *TODO: Sequelize with PostgreSQL*
-* *TODO: Redis for sessions/caching*
+* [Sequelize with PostgreSQL](http://docs.sequelizejs.com/en/v3/)
+* *TODO: Sequelize: migrations, seeders/fixtures *
+* [Redis for sessions and caching](https://github.com/NodeRedis/node_redis)
+* *TODO: Redis: Caching service*
 * *TODO: MongoDB with Mongoose*
 * *TODO: Passportjs for authentication*
 * *TODO: Production ready build config*

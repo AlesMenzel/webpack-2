@@ -13,7 +13,7 @@ class About extends Component {
 		return (
 			<div>
 				<h1>About view</h1>
-				<p>Just a sample. Read the project README</p>
+				<p>Just a sample. Read the project README :-) YUP</p>
 				<Link to="/">Back</Link>
 			</div>
 		);
