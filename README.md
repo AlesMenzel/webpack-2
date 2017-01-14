@@ -31,7 +31,7 @@ Backend is compiled via Webpack. Support for all common platforms (Windows, Unix
 * *TODO: Sequelize: migrations, seeders/fixtures *
 * [Redis for sessions and caching](https://github.com/NodeRedis/node_redis)
 * *TODO: Redis: Caching service*
-* *TODO: MongoDB with Mongoose*
+* [MongoDB](https://docs.mongodb.com/manual/crud/) with [Mongoose](http://mongoosejs.com/docs/guide.html)
 * *TODO: Passportjs for authentication*
 * *TODO: Production ready build config*
 * *TODO: Prepare testing with Mocha, Sinon*
@@ -46,6 +46,7 @@ TODO
 TODO
 
 ## Sequelize Migrations
+[Sequelize CLI Migrations Documentation](http://docs.sequelizejs.com/en/latest/docs/migrations/)
 * Create a new migration: `sequelize migration:create --name migration-name`
 * Run pending migrations: `sequelize db:migrate`
 * Downgrade: `sequelize db:migrate:undo`

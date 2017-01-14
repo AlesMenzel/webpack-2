@@ -11,7 +11,6 @@ const port = process.env.PORT || 3000;
 const morganLog = process.env.NODE_ENV === 'production' ? 'short' : 'dev';
 
 const application = () => {
-	console.log('XY', process.env.DB_POSTGRE);
 	const app = express();
 
 	app.set('x-powered-by', false);
