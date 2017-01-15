@@ -1,9 +1,10 @@
 require('dotenv').config();
 
 module.exports = {
-  "migrations-path": "src/migrations",
-  "config": __filename,
-  "use_env_variable": "DB_POSTGRE",
+  'migrations-path': 'src/migrations',
+  'config': __filename,
+  'use_env_variable': 'DB_POSTGRE',
   'models-path': 'src/model',
+  'seeders-path': 'src/seed',
   dialect: 'postgres'
 }
